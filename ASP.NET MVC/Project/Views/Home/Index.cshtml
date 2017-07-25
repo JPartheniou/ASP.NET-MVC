@@ -1,0 +1,39 @@
+﻿@{
+    ViewBag.Title = "Nananananananananananananananananana Batman";
+}
+@section featured {
+    <section class="featured" id="bluething">
+        <div class="content-wrapper" >
+            <hgroup class="title">
+                <h1>Welcome to Wayne Enterprises @HttpContext.Current.User.Identity.Name ! </h1>
+                 @if (User.IsInRole("Administrator") || User.IsInRole("Author") || User.IsInRole("Visitor"))
+                            { <h2>How ya doin??</h2>}else{
+                <h2>@ViewBag.Message</h2>}
+            </hgroup>
+            @if (User.IsInRole("Administrator") || User.IsInRole("Author") || User.IsInRole("Visitor"))
+                            { 
+            <p>Thank you for Loging In! </p>
+            }else{
+                <p >
+                Seriously now.. <a href ="/Account/Register">Register</a> or <a href ="/Account/Login">Login</a> cause Mr. Wayne is getting nervous if you are an anonymus User</p>
+            }
+        </div>
+    </section>
+}
+<h3>CEO's latest news:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>You don't need to thank me...</h5>
+        Yes, I do... The Joker was right. Any chance we had of fixing the city dies with Harvey’s reputation. We bet it all on him. The Joker took the best of us and tore him down... People will lose hope.
+    </li>
+
+    <li class="two">
+        <h5>No... They must never know what he did.</h5>
+        You either die a hero, or live long enough to see yourself become the villain... I can do those things, because I’m not a hero. I killed those people. That’s what I can be.
+    </li>
+
+    <li class="three">
+        <h5>They'll hunt you.</h5>
+        You'll hunt me. You'll condemn me. Set the dogs on me. Because that's what needs to happen. Sometimes, truth isn't good enough, sometimes people deserve more. Sometimes people deserve to have their faith rewarded.
+    </li>
+</ol>

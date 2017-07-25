@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Project.Models.Solutions>
+
+@{
+    ViewBag.Title = "Solution";
+}
+<table>
+<tr><th><u>Solution for your Company</u></th></tr>
+  <tr> </tr>
+@{foreach (var item in Model)
+{   
+    <tr><td><strong>Hardware Infrastructure: </strong></td><td>@item.HardwareInfrastructure</td></tr>
+    <tr><td><strong>Software Infrastructure: </strong></td><td>@item.SoftwareInfrastructure</td></tr>
+    <tr><td><strong>Software Aplications: </strong></td><td>@item.Software_Applications</td></tr>
+    <tr><td><strong>Networking: </strong></td><td>@item.Networking</td></tr>
+    <tr><td><strong>Storage: </strong></td><td>@item.Storage </td></tr>
+    
+
+}
+}
+    </table>

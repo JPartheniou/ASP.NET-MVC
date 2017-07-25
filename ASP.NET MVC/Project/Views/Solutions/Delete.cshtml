@@ -1,0 +1,59 @@
+﻿@model Project.Models.Solutions
+
+@{
+    ViewBag.Title = "Delete Solutions";
+}
+
+<h2>Delete Solutions</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+
+ @if(User.IsInRole("Administrator"))
+        {
+<fieldset>
+    <legend>Solutions</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HardwareInfrastructure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HardwareInfrastructure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SoftwareInfrastructure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoftwareInfrastructure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Software_Applications)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Software_Applications)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Networking)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Networking)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Storage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Storage)
+    </div>
+</fieldset>
+  <input type="submit" value="Delete" />    
+ }
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

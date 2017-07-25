@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Project.Models.Combination>
+
+@{
+    ViewBag.Title = "Combinations!!";
+}
+
+<h2>Combinations</h2>
+
+@if(User.IsInRole("Administrator"))
+        {
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CompanyType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofEmployees)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofCustomers)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NumberofTransactions)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CompanyType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofEmployees)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofCustomers)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NumberofTransactions)
+        </td>
+        @if(User.IsInRole("Administrator"))
+        {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.CombId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.CombId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.CombId })
+        </td>
+        }
+    </tr>
+}
+
+</table>

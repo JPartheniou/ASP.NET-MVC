@@ -1,0 +1,41 @@
+﻿@model Project.Models.DropSol
+
+@{
+    ViewBag.Title = "Welcome";
+}
+@if (User.IsInRole("Administrator"))
+{
+    <h2>Administrator Links</h2>
+
+<table>
+    <tr><th><a href="/User">Users</a></th></tr>
+    <tr><th><a href="/Roles">Roles</a></th></tr>
+    <tr><th><a href="/Combination">Combinations</a></th></tr>
+    <tr><th><a href="/Solutions">Solutions</a></th></tr>
+</table>
+}
+else if(User.IsInRole("Author")){
+    <h2>Author Links</h2>
+    <table>
+        <tr><th><a href="/Solutions/Create">Create New Solution</a></th></tr>
+    </table>
+}
+else{
+<h2>Select the Configuration of Your Company</h2>
+
+   
+@Html.BeginForm("ShowSol", "DropSol", FormMethod.Post, new { id = "SolutionGet" })
+{
+    <table>
+        <tr><th>Company Type Options</th></tr>
+        <tr><td>@Html.DropDownList("CombId",
+        new SelectList(Model.DropComb, "SolutionId", "FullList"),
+        "---Select One---", 
+        new { onchange = "document.getElementById           ('SolutionGet').submit();" })
+        </td></tr>
+    </table>
+    
+}
+}
+        
+  

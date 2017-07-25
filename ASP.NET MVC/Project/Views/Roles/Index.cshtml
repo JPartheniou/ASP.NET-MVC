@@ -1,0 +1,18 @@
+﻿@model Project.Models.DropRole
+
+@{
+    ViewBag.Title = "Select a Role";
+}
+
+<h2>Select a Role to find the Users assigned to that Role</h2>
+
+@using (Html.BeginForm("ShowAd", "Roles", FormMethod.Post, new { id = "RoleGet" }))
+{
+
+@Html.DropDownList("RoleID", new SelectList(Model.RoleCat, "RoleId", "RoleName"), "Select One", new { onchange = "document.getElementById('RoleGet').submit();"})
+
+
+    
+    
+}
+ 

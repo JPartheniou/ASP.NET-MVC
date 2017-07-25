@@ -1,0 +1,56 @@
+﻿@model Project.Models.Solutions
+
+@{
+    ViewBag.Title = "Details Solutions?";
+}
+
+<h2>Details about Solutions</h2>
+
+ @if(User.IsInRole("Administrator"))
+        {
+
+<fieldset>
+    <legend>Solutions</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.HardwareInfrastructure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.HardwareInfrastructure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SoftwareInfrastructure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.SoftwareInfrastructure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Software_Applications)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Software_Applications)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Networking)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Networking)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Storage)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Storage)
+    </div>
+</fieldset>
+     <p>
+      @Html.ActionLink("Edit", "Edit", new { id=Model.SolutionId }) </p>
+ }
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

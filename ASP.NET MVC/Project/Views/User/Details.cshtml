@@ -1,0 +1,34 @@
+﻿@model Project.Models.UserProfile
+
+@{
+    ViewBag.Title = "Details User?";
+}
+
+<h2>Details about Users</h2>
+ 
+@if(User.IsInRole("Administrator"))
+        {
+<fieldset>
+    <legend>UserProfile</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserEmail)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserEmail)
+    </div>
+</fieldset>
+    <p>
+ @Html.ActionLink("Edit", "Edit", new { id=Model.UserId })    </p>
+}
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Project.Models.UserProfile>
+
+@{
+    ViewBag.Title = "ShowAd";
+}
+
+<h2>ShowAd</h2>
+
+
+@{foreach(var item in Model){
+      @item.UserName<br />
+}
+}

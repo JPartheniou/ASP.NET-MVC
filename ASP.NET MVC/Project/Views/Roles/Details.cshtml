@@ -1,0 +1,32 @@
+﻿@model Project.Models.webpages_Roles
+
+@{
+    ViewBag.Title = "Details Roles?";
+}
+
+<h2>Details about Roles</h2>
+ @if(User.IsInRole("Administrator"))
+        {
+<fieldset>
+    <legend>webpages_Roles</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoleId)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleId)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.RoleName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.RoleName)
+    </div>
+</fieldset>
+     <p>@Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) </p>
+ }
+<p>
+    
+    @Html.ActionLink("Back to List", "Index")
+</p>

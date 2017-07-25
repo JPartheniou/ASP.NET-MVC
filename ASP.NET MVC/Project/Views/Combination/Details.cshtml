@@ -1,0 +1,49 @@
+﻿@model Project.Models.Combination
+
+@{
+    ViewBag.Title = "Details Combinations?";
+}
+
+<h2>Details about Combinations</h2>
+ @if(User.IsInRole("Administrator"))
+        {
+<fieldset>
+    <legend>Combination</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.CompanyType)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.CompanyType)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberofEmployees)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberofEmployees)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberofCustomers)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberofCustomers)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberofTransactions)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberofTransactions)
+    </div>
+
+    
+</fieldset>
+     <p>
+     @Html.ActionLink("Edit", "Edit", new { id=Model.CombId }) </p>
+
+ }
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

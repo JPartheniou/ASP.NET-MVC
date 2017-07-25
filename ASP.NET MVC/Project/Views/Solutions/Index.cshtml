@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Project.Models.Solutions>
+
+@{
+    ViewBag.Title = "Solutions";
+}
+
+<h2>Solutions</h2>
+
+@using (Html.BeginForm("Index","Solutions",FormMethod.Get)){  
+   
+         <p> Search: @Html.TextBox("keyWord") <br />   
+         <input type="submit" value="Search" /></p> 
+         
+        }
+
+@if(User.IsInRole("Administrator"))
+        {
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+}
+    
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HardwareInfrastructure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SoftwareInfrastructure)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Software_Applications)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Networking)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Storage)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HardwareInfrastructure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoftwareInfrastructure)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Software_Applications)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Networking)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Storage)
+        </td>
+         @if(User.IsInRole("Administrator"))
+        {
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.SolutionId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.SolutionId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.SolutionId })
+        </td>
+         }
+    </tr>
+}
+
+</table>

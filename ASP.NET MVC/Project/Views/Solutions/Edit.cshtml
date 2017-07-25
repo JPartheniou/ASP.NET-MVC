@@ -1,0 +1,71 @@
+﻿@model Project.Models.Solutions
+
+@{
+    ViewBag.Title = "Edit Solutions";
+}
+
+<h2>Edit Solutions</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+     if(User.IsInRole("Administrator"))
+        {
+    <fieldset>
+        <legend>Solutions</legend>
+
+        @Html.HiddenFor(model => model.SolutionId)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.HardwareInfrastructure)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.HardwareInfrastructure)
+            @Html.ValidationMessageFor(model => model.HardwareInfrastructure)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.SoftwareInfrastructure)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.SoftwareInfrastructure)
+            @Html.ValidationMessageFor(model => model.SoftwareInfrastructure)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Software_Applications)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Software_Applications)
+            @Html.ValidationMessageFor(model => model.Software_Applications)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Networking)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Networking)
+            @Html.ValidationMessageFor(model => model.Networking)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Storage)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Storage)
+            @Html.ValidationMessageFor(model => model.Storage)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+}
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
